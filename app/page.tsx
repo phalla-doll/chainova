@@ -1,4 +1,4 @@
-import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network, Terminal, Map as MapIcon, CheckSquare } from 'lucide-react';
+import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network, Terminal, Map as MapIcon, CheckSquare, MessageSquare, HelpCircle } from 'lucide-react';
 
 export default function Page() {
   return (
@@ -227,7 +227,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* NEW: Topology / Global Node Network Section */}
+      {/* Topology / Global Node Network Section */}
       <section className="flex flex-col lg:flex-row border-b border-gray-300">
         <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           <div className="flex items-center gap-3 mb-8">
@@ -293,7 +293,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* NEW: Live Telemetry / Terminal Section */}
+      {/* Live Telemetry / Terminal Section */}
       <section className="border-b border-gray-300 bg-[#0000ff] text-white flex flex-col">
         <div className="border-b border-blue-800 p-4 flex justify-between items-center px-6 md:px-12">
           <div className="flex items-center gap-3">
@@ -320,7 +320,92 @@ export default function Page() {
         </div>
       </section>
 
-      {/* NEW: Pricing Section */}
+      {/* NEW: Testimonials Section */}
+      <section className="flex flex-col lg:flex-row border-b border-gray-300">
+        <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-gray-50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(90deg, #0000ff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-8">
+              <MessageSquare className="w-5 h-5 text-[#0000ff]" />
+              <h2 className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff]">Verified Outcomes</h2>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
+              Enterprise<br/>Telemetry
+            </h3>
+            <p className="text-gray-500 text-sm leading-relaxed">
+              Real-world performance metrics from active deployments across global supply networks.
+            </p>
+          </div>
+        </div>
+        <div className="w-full lg:w-2/3 flex flex-col sm:flex-row">
+          <div className="w-full sm:w-1/2 border-b sm:border-b-0 sm:border-r border-gray-300 p-8 md:p-12 flex flex-col justify-between hover:bg-gray-50 transition-colors">
+            <div>
+              <div className="text-[#0000ff] font-mono text-4xl md:text-5xl mb-6 tracking-tight">-18%</div>
+              <p className="text-gray-900 text-base md:text-lg font-medium leading-relaxed mb-8">"Chainova's predictive routing cut our global transit delays by 18% in the first quarter alone. The ROI was immediate and measurable."</p>
+            </div>
+            <div className="border-t border-gray-300 pt-6">
+              <div className="text-sm font-bold uppercase tracking-tight">Sarah Jenkins</div>
+              <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">VP Logistics, GlobalTech</div>
+            </div>
+          </div>
+          <div className="w-full sm:w-1/2 p-8 md:p-12 flex flex-col justify-between hover:bg-gray-50 transition-colors">
+            <div>
+              <div className="text-[#0000ff] font-mono text-4xl md:text-5xl mb-6 tracking-tight">99.4%</div>
+              <p className="text-gray-900 text-base md:text-lg font-medium leading-relaxed mb-8">"We achieved 99.4% inventory accuracy. The continuous optimization loop completely eliminated our stockout issues across 40 warehouses."</p>
+            </div>
+            <div className="border-t border-gray-300 pt-6">
+              <div className="text-sm font-bold uppercase tracking-tight">Marcus Chen</div>
+              <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mt-1">COO, RetailPrime</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: FAQ Section */}
+      <section className="flex flex-col lg:flex-row border-b border-gray-300">
+        <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col">
+          <h2 className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff] mb-8">Knowledge Base</h2>
+          <h3 className="text-3xl md:text-4xl font-semibold leading-[1.05] tracking-tight uppercase mb-12">
+            System<br/>Queries
+          </h3>
+          <div className="flex-grow flex items-end">
+            <div className="w-16 h-16 border border-gray-300 flex items-center justify-center text-gray-400">
+              <HelpCircle className="w-6 h-6" />
+            </div>
+          </div>
+        </div>
+        <div className="w-full lg:w-2/3 flex flex-col">
+          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+            <div className="flex justify-between items-start gap-6">
+              <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.01</div>
+              <div>
+                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">How long does deployment take?</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Standard cluster deployments take 14-21 days including data ingestion and initial model training. Custom network deployments vary based on infrastructure complexity and legacy system integration requirements.</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+            <div className="flex justify-between items-start gap-6">
+              <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.02</div>
+              <div>
+                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">What ERP systems are supported?</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Chainova natively integrates with SAP, Oracle, Microsoft Dynamics, and provides a robust REST/GraphQL API for custom or legacy system connections. Data streams are normalized automatically upon ingestion.</p>
+              </div>
+            </div>
+          </div>
+          <div className="p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+            <div className="flex justify-between items-start gap-6">
+              <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.03</div>
+              <div>
+                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">Is my supply chain data secure?</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We are SOC 2 Type II, ISO 27001, and GDPR compliant. Dedicated single-tenant environments are available for Network tier enterprise clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
       <section id="pricing" className="flex flex-col border-b border-gray-300">
         <div className="flex border-b border-gray-300">
           <div className="w-full p-6 md:p-8 flex items-center">
