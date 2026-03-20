@@ -30,7 +30,7 @@ export default function Page() {
         {/* Left Column */}
         <div className="w-full lg:w-1/2 border-r border-gray-300 flex flex-col">
           {/* Hatch Top */}
-          <div className="flex border-b border-gray-300 h-16 md:h-24 shrink-0">
+          <div className="flex border-b border-gray-300 h-24 md:h-32 lg:h-36 shrink-0">
             <div className="w-1/2 border-r border-gray-300" style={hatchStyle}></div>
             <div className="w-1/2" style={hatchStyle}></div>
           </div>
