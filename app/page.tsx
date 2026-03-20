@@ -1,8 +1,8 @@
-import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network } from 'lucide-react';
+import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network, Terminal, Map as MapIcon, CheckSquare } from 'lucide-react';
 
 export default function Page() {
   return (
-    <div className="bg-white flex flex-col font-sans text-gray-900 min-h-screen">
+    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
       {/* Header - Sticky */}
       <header className="sticky top-0 z-50 bg-white flex flex-col md:flex-row border-b border-gray-300 shrink-0">
         <div className="w-full md:w-1/4 border-b md:border-b-0 md:border-r border-gray-300 p-6 flex items-center justify-center md:justify-start">
@@ -223,6 +223,148 @@ export default function Page() {
                {/* Overlay grid */}
                <div className="absolute inset-0 pointer-events-none opacity-50" style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: Topology / Global Node Network Section */}
+      <section className="flex flex-col lg:flex-row border-b border-gray-300">
+        <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+          <div className="flex items-center gap-3 mb-8">
+            <MapIcon className="w-5 h-5 text-[#0000ff]" />
+            <h2 className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff]">Topology</h2>
+          </div>
+          <h3 className="text-3xl md:text-4xl font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
+            Global Node<br/>Synchronization
+          </h3>
+          <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-8">
+            Map your entire supply chain into a single, cohesive neural grid. Monitor shipments, warehouses, and fleets in absolute real-time across 10,000+ active logistics nodes.
+          </p>
+          <button className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff] flex items-center gap-2 hover:text-blue-800 transition-colors w-max">
+            Explore the Map <ArrowUpRight className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="w-full lg:w-2/3 p-8 md:p-16 relative bg-gray-50 flex items-center justify-center overflow-hidden min-h-[400px]">
+          {/* Grid background */}
+          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(90deg, #0000ff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+          
+          {/* Pulsing Nodes SVG */}
+          <svg className="relative z-10 w-full h-full max-h-[400px]" viewBox="0 0 800 400">
+            {/* Perspective Grid Lines */}
+            <g stroke="#0000ff" strokeWidth="1" opacity="0.15">
+              <line x1="0" y1="200" x2="800" y2="200" />
+              <line x1="0" y1="260" x2="800" y2="260" />
+              <line x1="0" y1="340" x2="800" y2="340" />
+              <line x1="400" y1="150" x2="400" y2="400" />
+              <line x1="400" y1="150" x2="200" y2="400" />
+              <line x1="400" y1="150" x2="600" y2="400" />
+              <line x1="400" y1="150" x2="0" y2="400" />
+              <line x1="400" y1="150" x2="800" y2="400" />
+            </g>
+            
+            {/* Connections */}
+            <path d="M200 150 L400 100 L600 180 L500 280 L300 250 Z" fill="none" stroke="#0000ff" strokeWidth="2" strokeDasharray="4 4" className="opacity-60" />
+            <path d="M400 100 L500 280" fill="none" stroke="#0000ff" strokeWidth="2" strokeDasharray="4 4" className="opacity-60" />
+            <path d="M200 150 L300 250" fill="none" stroke="#0000ff" strokeWidth="2" strokeDasharray="4 4" className="opacity-60" />
+            <path d="M600 180 L700 120" fill="none" stroke="#0000ff" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+            <path d="M200 150 L100 200" fill="none" stroke="#0000ff" strokeWidth="2" strokeDasharray="4 4" className="opacity-40" />
+
+            {/* Nodes */}
+            <g fill="#0000ff">
+              <circle cx="200" cy="150" r="6" />
+              <circle cx="200" cy="150" r="14" className="animate-ping opacity-50" />
+              
+              <circle cx="400" cy="100" r="8" />
+              <circle cx="400" cy="100" r="20" className="animate-ping opacity-50" style={{ animationDelay: '0.5s' }} />
+              
+              <circle cx="600" cy="180" r="5" />
+              <circle cx="600" cy="180" r="12" className="animate-ping opacity-50" style={{ animationDelay: '1s' }} />
+              
+              <circle cx="500" cy="280" r="7" />
+              <circle cx="500" cy="280" r="16" className="animate-ping opacity-50" style={{ animationDelay: '0.2s' }} />
+              
+              <circle cx="300" cy="250" r="5" />
+              <circle cx="300" cy="250" r="12" className="animate-ping opacity-50" style={{ animationDelay: '0.8s' }} />
+
+              <circle cx="700" cy="120" r="4" opacity="0.6" />
+              <circle cx="100" cy="200" r="4" opacity="0.6" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      {/* NEW: Live Telemetry / Terminal Section */}
+      <section className="border-b border-gray-300 bg-[#0000ff] text-white flex flex-col">
+        <div className="border-b border-blue-800 p-4 flex justify-between items-center px-6 md:px-12">
+          <div className="flex items-center gap-3">
+            <Terminal className="w-4 h-4 opacity-70" />
+            <span className="text-[10px] font-mono uppercase tracking-widest opacity-70">System_Logs // Live_Telemetry</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono uppercase tracking-widest opacity-70">Status: Active</span>
+            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          </div>
+        </div>
+        <div className="p-8 md:p-12 lg:p-16 font-mono text-xs md:text-sm leading-loose opacity-90 overflow-x-auto">
+          <p className="text-blue-300 mb-2">CHAINOVA_OS v4.2.1 [AI Core Online]</p>
+          <p>{`> INITIATING ROUTE OPTIMIZATION PROTOCOL... [OK]`}</p>
+          <p>{`> ANALYZING 45,291 ACTIVE SHIPMENTS... [OK]`}</p>
+          <p>{`> CROSS-REFERENCING GLOBAL WEATHER PATTERNS... [OK]`}</p>
+          <p className="text-yellow-300 mt-4">{`> WARNING: SEVERE WEATHER ANOMALY DETECTED IN SECTOR 7G (PACIFIC_NORTH).`}</p>
+          <p className="text-yellow-300">{`> IMPACT PROBABILITY: 87.4%. ESTIMATED DELAY: 48 HOURS.`}</p>
+          <p className="mt-4">{`> CALCULATING ALTERNATIVE ROUTES...`}</p>
+          <p>{`> REROUTING FLEET ALPHA VIA SECTOR 4B.`}</p>
+          <p className="text-green-300">{`> SUCCESS: ROUTE UPDATED. ESTIMATED SAVINGS: $142,000. DELAY MITIGATED.`}</p>
+          <p className="mt-4">{`> AWAITING NEXT INSTRUCTION...`}</p>
+          <p className="animate-pulse mt-2">_</p>
+        </div>
+      </section>
+
+      {/* NEW: Pricing Section */}
+      <section id="pricing" className="flex flex-col border-b border-gray-300">
+        <div className="flex border-b border-gray-300">
+          <div className="w-full p-6 md:p-8 flex items-center">
+            <h2 className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff]">Deployment Tiers</h2>
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row">
+          {/* Tier 1 */}
+          <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col hover:bg-gray-50 transition-colors">
+            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">Node</span>
+            <div className="text-4xl md:text-5xl font-semibold mb-8 tracking-tight">$4k<span className="text-lg text-gray-400 font-normal">/mo</span></div>
+            <ul className="space-y-4 text-sm text-gray-600 font-medium flex-grow mb-12">
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Up to 10M data points</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> 5 Predictive Models</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Standard Support</li>
+            </ul>
+            <button className="w-full border border-gray-300 py-4 text-[11px] font-semibold hover:bg-gray-100 transition-colors uppercase tracking-widest">Select Node</button>
+          </div>
+          
+          {/* Tier 2 (Highlighted) */}
+          <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col bg-gray-50 relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-[#0000ff]"></div>
+            <span className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mb-4">Cluster</span>
+            <div className="text-4xl md:text-5xl font-semibold mb-8 tracking-tight">$12k<span className="text-lg text-gray-400 font-normal">/mo</span></div>
+            <ul className="space-y-4 text-sm text-gray-900 font-medium flex-grow mb-12">
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Unlimited data points</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> 25 Predictive Models</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Real-time Routing</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> 24/7 Priority Support</li>
+            </ul>
+            <button className="w-full bg-[#0000ff] text-white py-4 text-[11px] font-semibold hover:bg-blue-800 transition-colors uppercase tracking-widest">Select Cluster</button>
+          </div>
+          
+          {/* Tier 3 */}
+          <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col hover:bg-gray-50 transition-colors">
+            <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-4">Network</span>
+            <div className="text-4xl md:text-5xl font-semibold mb-8 tracking-tight">Custom</div>
+            <ul className="space-y-4 text-sm text-gray-600 font-medium flex-grow mb-12">
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Dedicated Infrastructure</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Unlimited Models</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Custom Integrations</li>
+              <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> On-premise Deployment</li>
+            </ul>
+            <button className="w-full border border-gray-300 py-4 text-[11px] font-semibold hover:bg-gray-100 transition-colors uppercase tracking-widest">Contact Sales</button>
           </div>
         </div>
       </section>
