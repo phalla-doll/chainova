@@ -1,20 +1,25 @@
-import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network, Terminal, Map as MapIcon, CheckSquare, MessageSquare, HelpCircle } from 'lucide-react';
+import { ArrowUpRight, Activity, Globe, AlertTriangle, Database, Cpu, Network, Terminal, Map as MapIcon, CheckSquare, MessageSquare, HelpCircle, Plus } from 'lucide-react';
 
 export default function Page() {
+  // Custom hatch pattern for the brutalist/technical aesthetic
+  const hatchStyle = { 
+    backgroundImage: 'repeating-linear-gradient(-45deg, transparent, transparent 4px, #e5e7eb 4px, #e5e7eb 5px)' 
+  };
+
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900">
+    <div className="min-h-screen bg-white flex flex-col font-sans text-gray-900 selection:bg-[#0000ff] selection:text-white">
       {/* Header - Sticky */}
       <header className="sticky top-0 z-50 bg-white flex flex-col md:flex-row border-b border-gray-300 shrink-0">
-        <div className="w-full md:w-1/4 border-b md:border-b-0 md:border-r border-gray-300 p-6 flex items-center justify-center md:justify-start">
+        <div className="w-full md:w-1/4 border-b md:border-b-0 md:border-r border-gray-300 p-4 md:p-6 flex items-center justify-center md:justify-start">
           <span className="font-bold tracking-widest uppercase text-sm">Chainova</span>
         </div>
-        <div className="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-gray-300 p-6 flex items-center justify-center gap-8 md:gap-16">
-          <a href="#features" className="text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">Features</a>
-          <a href="#engine" className="text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">Engine</a>
-          <a href="#pricing" className="text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">Pricing</a>
+        <div className="w-full md:w-1/2 border-b md:border-b-0 md:border-r border-gray-300 p-4 md:p-6 flex items-center justify-center gap-6 md:gap-12 lg:gap-16 overflow-x-auto">
+          <a href="#features" className="text-[10px] md:text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors whitespace-nowrap">Features</a>
+          <a href="#engine" className="text-[10px] md:text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors whitespace-nowrap">Engine</a>
+          <a href="#pricing" className="text-[10px] md:text-[11px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors whitespace-nowrap">Pricing</a>
         </div>
-        <div className="w-full md:w-1/4 p-6 flex items-center justify-center md:justify-end">
-          <button className="bg-[#0000ff] text-white px-6 py-2.5 text-sm font-medium flex items-center gap-2 hover:bg-blue-800 transition-colors">
+        <div className="w-full md:w-1/4 p-4 md:p-6 flex items-center justify-center md:justify-end">
+          <button className="bg-[#0000ff] text-white px-6 py-2.5 text-xs md:text-sm font-medium flex items-center gap-2 hover:bg-blue-800 transition-colors w-full md:w-auto justify-center">
             Log In <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
@@ -25,49 +30,49 @@ export default function Page() {
         {/* Left Column */}
         <div className="w-full lg:w-1/2 border-r border-gray-300 flex flex-col">
           {/* Hatch Top */}
-          <div className="flex border-b border-gray-300 h-24 shrink-0">
-            <div className="w-1/2 border-r border-gray-300 bg-hatch"></div>
-            <div className="w-1/2 bg-hatch"></div>
+          <div className="flex border-b border-gray-300 h-16 md:h-24 shrink-0">
+            <div className="w-1/2 border-r border-gray-300" style={hatchStyle}></div>
+            <div className="w-1/2" style={hatchStyle}></div>
           </div>
 
           {/* Hero Text */}
-          <div className="flex-grow p-8 md:p-12 lg:p-16 border-b border-gray-300 flex flex-col justify-center">
-            <div className="inline-block bg-gray-100 px-3 py-1.5 rounded-sm text-xs font-medium text-gray-600 mb-8 self-start">
+          <div className="flex-grow p-6 md:p-12 lg:p-16 border-b border-gray-300 flex flex-col justify-center">
+            <div className="inline-block bg-gray-100 px-3 py-1.5 rounded-sm text-[10px] md:text-xs font-medium text-gray-600 mb-6 md:mb-8 self-start uppercase tracking-wider">
               Trusted by 500+ global enterprises
             </div>
-            <h1 className="text-4xl md:text-[3.5rem] lg:text-[4rem] xl:text-[5rem] font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
+            <h1 className="text-4xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
               Turn supply chains<br />into predictive<br />machines
             </h1>
-            <p className="text-gray-500 text-sm md:text-base lg:text-lg max-w-md mb-10 leading-relaxed">
+            <p className="text-gray-500 text-sm md:text-base lg:text-lg max-w-md mb-8 md:mb-10 leading-relaxed">
               Use AI to forecast demand, eliminate inefficiencies, and make every supply-chain decision faster, smarter, and more profitable.
             </p>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <button className="bg-gray-100 text-gray-900 px-6 py-3 text-sm font-medium hover:bg-gray-200 transition-colors w-full sm:w-auto text-center">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <button className="bg-gray-100 text-gray-900 px-6 py-3.5 text-xs md:text-sm font-medium hover:bg-gray-200 transition-colors text-center uppercase tracking-wider">
                 Request a Demo
               </button>
-              <button className="bg-[#0000ff] text-white px-6 py-3 text-sm font-medium flex items-center justify-center gap-2 hover:bg-blue-800 transition-colors w-full sm:w-auto">
+              <button className="bg-[#0000ff] text-white px-6 py-3.5 text-xs md:text-sm font-medium flex items-center justify-center gap-2 hover:bg-blue-800 transition-colors uppercase tracking-wider">
                 Start 14 Days Free Trial <ArrowUpRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Logos */}
-          <div className="flex h-24 shrink-0 overflow-x-auto">
-            <div className="w-1/4 min-w-[100px] border-r border-gray-300 flex items-center justify-center p-4">
-              <span className="text-xl font-bold text-gray-400">Google</span>
+          <div className="flex h-16 md:h-24 shrink-0 overflow-x-auto hide-scrollbar">
+            <div className="w-1/4 min-w-[100px] border-r border-gray-300 flex items-center justify-center p-4 hover:bg-gray-50 transition-colors cursor-default">
+              <span className="text-lg md:text-xl font-bold text-gray-400">Google</span>
             </div>
-            <div className="w-1/4 min-w-[120px] border-r border-gray-300 flex items-center justify-center p-4 gap-2">
+            <div className="w-1/4 min-w-[120px] border-r border-gray-300 flex items-center justify-center p-4 gap-2 hover:bg-gray-50 transition-colors cursor-default">
               <div className="grid grid-cols-2 gap-[2px]">
-                <div className="w-2 h-2 bg-gray-400"></div><div className="w-2 h-2 bg-gray-400"></div>
-                <div className="w-2 h-2 bg-gray-400"></div><div className="w-2 h-2 bg-gray-400"></div>
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400"></div><div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400"></div>
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400"></div><div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gray-400"></div>
               </div>
-              <span className="text-lg font-semibold text-gray-400">Microsoft</span>
+              <span className="text-base md:text-lg font-semibold text-gray-400">Microsoft</span>
             </div>
-            <div className="w-1/4 min-w-[100px] border-r border-gray-300 flex items-center justify-center p-4">
-              <span className="text-xl font-bold text-gray-400 tracking-tighter">stripe</span>
+            <div className="w-1/4 min-w-[100px] border-r border-gray-300 flex items-center justify-center p-4 hover:bg-gray-50 transition-colors cursor-default">
+              <span className="text-lg md:text-xl font-bold text-gray-400 tracking-tighter">stripe</span>
             </div>
-            <div className="w-1/4 min-w-[100px] flex items-center justify-center p-4">
-              <span className="text-xl font-bold text-gray-400">amazon</span>
+            <div className="w-1/4 min-w-[100px] flex items-center justify-center p-4 hover:bg-gray-50 transition-colors cursor-default">
+              <span className="text-lg md:text-xl font-bold text-gray-400">amazon</span>
             </div>
           </div>
         </div>
@@ -76,23 +81,24 @@ export default function Page() {
         <div className="w-full lg:w-1/2 flex flex-col">
           {/* Stats */}
           <div className="flex border-b border-gray-300 shrink-0">
-            <div className="w-1/3 border-r border-gray-300 p-6 md:p-8">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-2">50B+</div>
-              <div className="text-[9px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">Data points processed</div>
+            <div className="w-1/3 border-r border-gray-300 p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+              <div className="text-xl md:text-3xl lg:text-4xl font-medium mb-1 md:mb-2 text-[#0000ff]">50B+</div>
+              <div className="text-[8px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">Data points</div>
             </div>
-            <div className="w-1/3 border-r border-gray-300 p-6 md:p-8">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-2">70+</div>
-              <div className="text-[9px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">AI models deployed</div>
+            <div className="w-1/3 border-r border-gray-300 p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+              <div className="text-xl md:text-3xl lg:text-4xl font-medium mb-1 md:mb-2 text-[#0000ff]">70+</div>
+              <div className="text-[8px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">AI models</div>
             </div>
-            <div className="w-1/3 p-6 md:p-8">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-medium mb-2">40+</div>
-              <div className="text-[9px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">Predictive models</div>
+            <div className="w-1/3 p-4 md:p-6 lg:p-8 flex flex-col justify-center">
+              <div className="text-xl md:text-3xl lg:text-4xl font-medium mb-1 md:mb-2 text-[#0000ff]">99%</div>
+              <div className="text-[8px] md:text-[10px] font-mono text-gray-500 uppercase tracking-widest leading-tight">Uptime SLA</div>
             </div>
           </div>
 
           {/* Image Area */}
-          <div className="flex-grow border-b border-gray-300 p-8 md:p-16 flex items-center justify-center bg-white min-h-[400px]">
-            <div className="relative w-full max-w-[500px] aspect-square">
+          <div className="flex-grow border-b border-gray-300 p-8 md:p-16 flex items-center justify-center bg-gray-50 min-h-[300px] md:min-h-[400px] relative overflow-hidden group">
+            <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(90deg, #0000ff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+            <div className="relative w-full max-w-[400px] aspect-square transform group-hover:scale-105 transition-transform duration-700 ease-out">
               <svg viewBox="0 0 200 200" className="w-full h-full text-[#0000ff]">
                 <defs>
                   <pattern id="dots" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
@@ -122,7 +128,7 @@ export default function Page() {
           </div>
 
           {/* Hatch Bottom */}
-          <div className="h-24 bg-hatch shrink-0"></div>
+          <div className="h-16 md:h-24 shrink-0" style={hatchStyle}></div>
         </div>
       </section>
 
@@ -136,7 +142,7 @@ export default function Page() {
         <div className="flex flex-col md:flex-row">
           {/* Feature 1 */}
           <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col hover:bg-gray-50 transition-colors group">
-            <div className="flex justify-between items-start mb-12">
+            <div className="flex justify-between items-start mb-12 transform group-hover:-translate-y-1 transition-transform duration-300">
               <div className="text-2xl font-mono text-gray-300 group-hover:text-[#0000ff] transition-colors">01</div>
               <Activity className="w-6 h-6 text-gray-400 group-hover:text-[#0000ff] transition-colors" />
             </div>
@@ -145,7 +151,7 @@ export default function Page() {
           </div>
           {/* Feature 2 */}
           <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col hover:bg-gray-50 transition-colors group">
-            <div className="flex justify-between items-start mb-12">
+            <div className="flex justify-between items-start mb-12 transform group-hover:-translate-y-1 transition-transform duration-300">
               <div className="text-2xl font-mono text-gray-300 group-hover:text-[#0000ff] transition-colors">02</div>
               <Globe className="w-6 h-6 text-gray-400 group-hover:text-[#0000ff] transition-colors" />
             </div>
@@ -154,7 +160,7 @@ export default function Page() {
           </div>
           {/* Feature 3 */}
           <div className="w-full md:w-1/3 p-8 md:p-12 flex flex-col hover:bg-gray-50 transition-colors group">
-            <div className="flex justify-between items-start mb-12">
+            <div className="flex justify-between items-start mb-12 transform group-hover:-translate-y-1 transition-transform duration-300">
               <div className="text-2xl font-mono text-gray-300 group-hover:text-[#0000ff] transition-colors">03</div>
               <AlertTriangle className="w-6 h-6 text-gray-400 group-hover:text-[#0000ff] transition-colors" />
             </div>
@@ -169,29 +175,29 @@ export default function Page() {
         <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-gray-300 flex flex-col">
           <div className="p-8 md:p-12 lg:p-16 flex-grow flex flex-col justify-center">
             <h2 className="text-[11px] font-semibold tracking-widest uppercase text-gray-500 mb-8">The Engine</h2>
-            <h3 className="text-3xl md:text-5xl font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
+            <h3 className="text-4xl md:text-5xl font-semibold leading-[1.05] tracking-tight mb-6 uppercase">
               Continuous<br/>Optimization<br/>Loop
             </h3>
             <p className="text-gray-500 text-sm md:text-base max-w-md mb-12 leading-relaxed">
               Our proprietary neural networks continuously ingest data from IoT sensors, ERP systems, and external APIs to refine predictive models in real-time.
             </p>
             <ul className="space-y-0">
-              <li className="flex items-center gap-6 border-t border-gray-300 py-4">
-                <Database className="w-5 h-5 text-[#0000ff] shrink-0" />
+              <li className="flex items-center gap-6 border-t border-gray-300 py-5 group">
+                <Database className="w-5 h-5 text-gray-400 group-hover:text-[#0000ff] transition-colors shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Phase 1 / Ingest</span>
                   <span className="text-sm font-medium">10M+ data points processed per second</span>
                 </div>
               </li>
-              <li className="flex items-center gap-6 border-t border-gray-300 py-4">
-                <Cpu className="w-5 h-5 text-[#0000ff] shrink-0" />
+              <li className="flex items-center gap-6 border-t border-gray-300 py-5 group">
+                <Cpu className="w-5 h-5 text-gray-400 group-hover:text-[#0000ff] transition-colors shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Phase 2 / Analyze</span>
                   <span className="text-sm font-medium">Sub-millisecond anomaly detection</span>
                 </div>
               </li>
-              <li className="flex items-center gap-6 border-t border-gray-300 py-4">
-                <Network className="w-5 h-5 text-[#0000ff] shrink-0" />
+              <li className="flex items-center gap-6 border-t border-gray-300 py-5 group">
+                <Network className="w-5 h-5 text-gray-400 group-hover:text-[#0000ff] transition-colors shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-1">Phase 3 / Act</span>
                   <span className="text-sm font-medium">Automated procurement & routing decisions</span>
@@ -216,7 +222,7 @@ export default function Page() {
                    <div 
                      key={i} 
                      className="flex-1 bg-[#0000ff] opacity-80 hover:opacity-100 transition-all duration-500 ease-in-out" 
-                     style={{ height: `${(h/130)*100}%` }}
+                     style={{ height: `${(h/130)*100}%`, animationDelay: `${i * 0.1}s` }}
                    ></div>
                  ))}
                </div>
@@ -244,12 +250,12 @@ export default function Page() {
             Explore the Map <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
-        <div className="w-full lg:w-2/3 p-8 md:p-16 relative bg-gray-50 flex items-center justify-center overflow-hidden min-h-[400px]">
+        <div className="w-full lg:w-2/3 p-0 relative bg-gray-50 flex items-center justify-center overflow-hidden min-h-[300px] md:min-h-[400px]">
           {/* Grid background */}
           <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(90deg, #0000ff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
           
           {/* Pulsing Nodes SVG */}
-          <svg className="relative z-10 w-full h-full max-h-[400px]" viewBox="0 0 800 400">
+          <svg className="relative z-10 w-full h-full min-h-[300px] max-h-[500px]" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
             {/* Perspective Grid Lines */}
             <g stroke="#0000ff" strokeWidth="1" opacity="0.15">
               <line x1="0" y1="200" x2="800" y2="200" />
@@ -294,19 +300,22 @@ export default function Page() {
       </section>
 
       {/* Live Telemetry / Terminal Section */}
-      <section className="border-b border-gray-300 bg-[#0000ff] text-white flex flex-col">
-        <div className="border-b border-blue-800 p-4 flex justify-between items-center px-6 md:px-12">
+      <section className="border-b border-gray-300 bg-[#0000ff] text-white flex flex-col relative overflow-hidden">
+        {/* Scanline overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, #000 2px, #000 4px)' }}></div>
+        
+        <div className="border-b border-blue-800 p-4 flex justify-between items-center px-6 md:px-12 relative z-10">
           <div className="flex items-center gap-3">
             <Terminal className="w-4 h-4 opacity-70" />
             <span className="text-[10px] font-mono uppercase tracking-widest opacity-70">System_Logs // Live_Telemetry</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono uppercase tracking-widest opacity-70">Status: Active</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest opacity-70 hidden sm:inline">Status: Active</span>
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
           </div>
         </div>
-        <div className="p-8 md:p-12 lg:p-16 font-mono text-xs md:text-sm leading-loose opacity-90 overflow-x-auto">
-          <p className="text-blue-300 mb-2">CHAINOVA_OS v4.2.1 [AI Core Online]</p>
+        <div className="p-6 md:p-12 lg:p-16 font-mono text-xs md:text-sm leading-loose opacity-90 overflow-x-auto relative z-10 min-h-[300px]">
+          <p className="text-blue-300 mb-4">CHAINOVA_OS v4.2.1 [AI Core Online]</p>
           <p>{`> INITIATING ROUTE OPTIMIZATION PROTOCOL... [OK]`}</p>
           <p>{`> ANALYZING 45,291 ACTIVE SHIPMENTS... [OK]`}</p>
           <p>{`> CROSS-REFERENCING GLOBAL WEATHER PATTERNS... [OK]`}</p>
@@ -320,7 +329,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* NEW: Testimonials Section */}
+      {/* Testimonials Section */}
       <section className="flex flex-col lg:flex-row border-b border-gray-300">
         <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col justify-center bg-gray-50 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#0000ff 1px, transparent 1px), linear-gradient(90deg, #0000ff 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
@@ -361,7 +370,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* NEW: FAQ Section */}
+      {/* FAQ Section */}
       <section className="flex flex-col lg:flex-row border-b border-gray-300">
         <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-300 p-8 md:p-12 lg:p-16 flex flex-col">
           <h2 className="text-[11px] font-semibold tracking-widest uppercase text-[#0000ff] mb-8">Knowledge Base</h2>
@@ -375,31 +384,34 @@ export default function Page() {
           </div>
         </div>
         <div className="w-full lg:w-2/3 flex flex-col">
-          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group cursor-pointer">
             <div className="flex justify-between items-start gap-6">
               <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.01</div>
-              <div>
-                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">How long does deployment take?</h4>
+              <div className="flex-grow">
+                <h4 className="text-base md:text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">How long does deployment take?</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">Standard cluster deployments take 14-21 days including data ingestion and initial model training. Custom network deployments vary based on infrastructure complexity and legacy system integration requirements.</p>
               </div>
+              <Plus className="w-5 h-5 text-gray-300 group-hover:text-[#0000ff] transition-all duration-300 shrink-0 mt-1" />
             </div>
           </div>
-          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+          <div className="border-b border-gray-300 p-8 md:p-12 hover:bg-gray-50 transition-colors group cursor-pointer">
             <div className="flex justify-between items-start gap-6">
               <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.02</div>
-              <div>
-                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">What ERP systems are supported?</h4>
+              <div className="flex-grow">
+                <h4 className="text-base md:text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">What ERP systems are supported?</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">Chainova natively integrates with SAP, Oracle, Microsoft Dynamics, and provides a robust REST/GraphQL API for custom or legacy system connections. Data streams are normalized automatically upon ingestion.</p>
               </div>
+              <Plus className="w-5 h-5 text-gray-300 group-hover:text-[#0000ff] transition-all duration-300 shrink-0 mt-1" />
             </div>
           </div>
-          <div className="p-8 md:p-12 hover:bg-gray-50 transition-colors group">
+          <div className="p-8 md:p-12 hover:bg-gray-50 transition-colors group cursor-pointer">
             <div className="flex justify-between items-start gap-6">
               <div className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mt-1.5 shrink-0">Q.03</div>
-              <div>
-                <h4 className="text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">Is my supply chain data secure?</h4>
+              <div className="flex-grow">
+                <h4 className="text-base md:text-lg font-semibold uppercase tracking-tight group-hover:text-[#0000ff] transition-colors mb-4">Is my supply chain data secure?</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We are SOC 2 Type II, ISO 27001, and GDPR compliant. Dedicated single-tenant environments are available for Network tier enterprise clients.</p>
               </div>
+              <Plus className="w-5 h-5 text-gray-300 group-hover:text-[#0000ff] transition-all duration-300 shrink-0 mt-1" />
             </div>
           </div>
         </div>
@@ -426,10 +438,10 @@ export default function Page() {
           </div>
           
           {/* Tier 2 (Highlighted) */}
-          <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col bg-gray-50 relative">
-            <div className="absolute top-0 left-0 w-full h-1 bg-[#0000ff]"></div>
+          <div className="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-300 p-8 md:p-12 flex flex-col bg-gray-50 relative shadow-[inset_0_0_0_1px_#0000ff] z-10">
+            <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0000ff]"></div>
             <span className="text-[10px] font-mono text-[#0000ff] uppercase tracking-widest mb-4">Cluster</span>
-            <div className="text-4xl md:text-5xl font-semibold mb-8 tracking-tight">$12k<span className="text-lg text-gray-400 font-normal">/mo</span></div>
+            <div className="text-4xl md:text-5xl font-semibold mb-8 tracking-tight text-[#0000ff]">$12k<span className="text-lg text-gray-400 font-normal">/mo</span></div>
             <ul className="space-y-4 text-sm text-gray-900 font-medium flex-grow mb-12">
               <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> Unlimited data points</li>
               <li className="flex items-center gap-3"><CheckSquare className="w-4 h-4 text-[#0000ff]" /> 25 Predictive Models</li>
@@ -457,21 +469,21 @@ export default function Page() {
       {/* CTA / Footer Section */}
       <section className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-gray-300 bg-[#0000ff] text-white p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight mb-8 uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight mb-8 uppercase">
             Ready to<br/>optimize?
           </h2>
-          <button className="bg-white text-[#0000ff] px-8 py-4 text-sm font-medium flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors w-full sm:w-max">
+          <button className="bg-white text-[#0000ff] px-8 py-4 text-sm font-medium flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors w-full sm:w-max uppercase tracking-wider">
             Deploy Chainova Today <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
         <div className="w-full lg:w-1/2 flex flex-col">
-          <div className="flex-grow bg-hatch min-h-[200px]"></div>
+          <div className="flex-grow min-h-[150px] md:min-h-[200px]" style={hatchStyle}></div>
           <div className="border-t border-gray-300 p-6 md:p-8 flex flex-col sm:flex-row justify-between items-center gap-6 bg-white shrink-0">
             <span className="font-bold tracking-widest uppercase text-sm">Chainova &copy; 2026</span>
             <div className="flex gap-6">
-              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">Twitter</a>
-              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">LinkedIn</a>
-              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-gray-900 transition-colors">Github</a>
+              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors">Twitter</a>
+              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors">LinkedIn</a>
+              <a href="#" className="text-[10px] font-semibold tracking-widest uppercase text-gray-500 hover:text-[#0000ff] transition-colors">Github</a>
             </div>
           </div>
         </div>
