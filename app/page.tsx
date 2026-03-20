@@ -106,28 +106,88 @@ export default function Page() {
               <div className="relative w-full max-w-[400px] aspect-square transform group-hover:scale-105 transition-transform duration-700 ease-out">
                 <svg viewBox="0 0 200 200" className="w-full h-full text-[#0000ff]">
                   <defs>
-                    <pattern id="dots" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
-                      <rect x="0" y="0" width="1.5" height="1.5" fill="currentColor" opacity="0.6"/>
+                    <pattern id="dots" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+                      <animate attributeName="y" values="0;4" dur="2s" repeatCount="indefinite" />
+                      <rect x="0" y="0" width="1.5" height="1.5" fill="currentColor" opacity="0.5"/>
                     </pattern>
+                    <filter id="hero-glow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="2" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
                   </defs>
-                  <path d="M100 30 L160 65 L100 100 L40 65 Z" fill="url(#dots)" />
-                  <path d="M40 65 L100 100 L100 170 L40 135 Z" fill="url(#dots)" opacity="0.85"/>
-                  <path d="M100 100 L160 65 L160 135 L100 170 Z" fill="url(#dots)" opacity="0.7"/>
-                  <path d="M100 5 L112 12 L100 19 L88 12 Z" fill="currentColor" />
-                  <path d="M88 12 L100 19 L100 33 L88 26 Z" fill="currentColor" opacity="0.85"/>
-                  <path d="M100 19 L112 12 L112 26 L100 33 Z" fill="currentColor" opacity="0.7"/>
-                  <path d="M175 85 L187 92 L175 99 L163 92 Z" fill="currentColor" />
-                  <path d="M163 92 L175 99 L175 113 L163 106 Z" fill="currentColor" opacity="0.85"/>
-                  <path d="M175 99 L187 92 L187 106 L175 113 Z" fill="currentColor" opacity="0.7"/>
-                  <path d="M25 105 L37 112 L25 119 L13 112 Z" fill="currentColor" />
-                  <path d="M13 112 L25 119 L25 133 L13 126 Z" fill="currentColor" opacity="0.85"/>
-                  <path d="M25 119 L37 112 L37 126 L25 133 Z" fill="currentColor" opacity="0.7"/>
-                  <path d="M140 150 L152 157 L140 164 L128 157 Z" fill="currentColor" />
-                  <path d="M128 157 L140 164 L140 178 L128 171 Z" fill="currentColor" opacity="0.85"/>
-                  <path d="M140 164 L152 157 L152 171 L140 178 Z" fill="currentColor" opacity="0.7"/>
-                  <path d="M60 140 L72 147 L60 154 L48 147 Z" fill="currentColor" />
-                  <path d="M48 147 L60 154 L60 168 L48 161 Z" fill="currentColor" opacity="0.85"/>
-                  <path d="M60 154 L72 147 L72 161 L60 168 Z" fill="currentColor" opacity="0.7"/>
+
+                  {/* Data Connections */}
+                  <g stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" opacity="0.4">
+                    <path d="M100 65 L100 33">
+                      <animate attributeName="stroke-dashoffset" values="6;0" dur="1s" repeatCount="indefinite" />
+                    </path>
+                    <path d="M160 100 L163 106">
+                      <animate attributeName="stroke-dashoffset" values="6;0" dur="1.5s" repeatCount="indefinite" />
+                    </path>
+                    <path d="M40 100 L37 126">
+                      <animate attributeName="stroke-dashoffset" values="0;6" dur="1.2s" repeatCount="indefinite" />
+                    </path>
+                    <path d="M130 152 L140 150">
+                      <animate attributeName="stroke-dashoffset" values="6;0" dur="2s" repeatCount="indefinite" />
+                    </path>
+                    <path d="M70 152 L60 140">
+                      <animate attributeName="stroke-dashoffset" values="0;6" dur="1.8s" repeatCount="indefinite" />
+                    </path>
+                  </g>
+
+                  {/* Main Cube */}
+                  <g>
+                    <path d="M100 30 L160 65 L100 100 L40 65 Z" fill="url(#dots)" />
+                    <path d="M40 65 L100 100 L100 170 L40 135 Z" fill="url(#dots)" opacity="0.85"/>
+                    <path d="M100 100 L160 65 L160 135 L100 170 Z" fill="url(#dots)" opacity="0.7"/>
+                    
+                    {/* Scanning Plane */}
+                    <path d="M100 30 L160 65 L100 100 L40 65 Z" fill="currentColor" fillOpacity="0.1" stroke="currentColor" strokeWidth="1.5" filter="url(#hero-glow)">
+                      <animate attributeName="transform" type="translate" values="0,0; 0,70; 0,0" dur="5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.1; 0.9; 1; 1" dur="5s" repeatCount="indefinite" />
+                    </path>
+                  </g>
+
+                  {/* Floating Cubes */}
+                  {/* Top Cube */}
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-6; 0,0" dur="4s" repeatCount="indefinite" />
+                    <path d="M100 5 L112 12 L100 19 L88 12 Z" fill="currentColor" filter="url(#hero-glow)" opacity="0.9" />
+                    <path d="M88 12 L100 19 L100 33 L88 26 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M100 19 L112 12 L112 26 L100 33 Z" fill="currentColor" opacity="0.7"/>
+                  </g>
+                  
+                  {/* Right Cube */}
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-4; 0,0" dur="3.5s" begin="-1s" repeatCount="indefinite" />
+                    <path d="M175 85 L187 92 L175 99 L163 92 Z" fill="currentColor" filter="url(#hero-glow)" opacity="0.9" />
+                    <path d="M163 92 L175 99 L175 113 L163 106 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M175 99 L187 92 L187 106 L175 113 Z" fill="currentColor" opacity="0.7"/>
+                  </g>
+
+                  {/* Left Cube */}
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-5; 0,0" dur="4.5s" begin="-2s" repeatCount="indefinite" />
+                    <path d="M25 105 L37 112 L25 119 L13 112 Z" fill="currentColor" filter="url(#hero-glow)" opacity="0.9" />
+                    <path d="M13 112 L25 119 L25 133 L13 126 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M25 119 L37 112 L37 126 L25 133 Z" fill="currentColor" opacity="0.7"/>
+                  </g>
+
+                  {/* Bottom Right Cube */}
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="3s" begin="-0.5s" repeatCount="indefinite" />
+                    <path d="M140 150 L152 157 L140 164 L128 157 Z" fill="currentColor" filter="url(#hero-glow)" opacity="0.9" />
+                    <path d="M128 157 L140 164 L140 178 L128 171 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M140 164 L152 157 L152 171 L140 178 Z" fill="currentColor" opacity="0.7"/>
+                  </g>
+
+                  {/* Bottom Left Cube */}
+                  <g>
+                    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-4; 0,0" dur="5s" begin="-3s" repeatCount="indefinite" />
+                    <path d="M60 140 L72 147 L60 154 L48 147 Z" fill="currentColor" filter="url(#hero-glow)" opacity="0.9" />
+                    <path d="M48 147 L60 154 L60 168 L48 161 Z" fill="currentColor" opacity="0.85"/>
+                    <path d="M60 154 L72 147 L72 161 L60 168 Z" fill="currentColor" opacity="0.7"/>
+                  </g>
                 </svg>
               </div>
             </div>
